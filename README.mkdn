@@ -1,0 +1,26 @@
+DuckyOS
+===========
+
+Getting started
+---------------
+
+To get started with Ducky, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
+
+To initialize your local repository using the Ducky trees, use a command like this:
+```
+repo init -u https://github.com/DuckyOS/DuckyOS.git -b kirkstone
+```
+Then to sync up:
+```
+repo sync
+```
+
+Then you can build the project using BitBake.
+
+```
+source oe-init-build-env build
+export MACHINE=sargo
+bitbake duckyos-package
+```
+
+Of course, switch `sargo` to match your device codename.

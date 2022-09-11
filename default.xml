@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="github"
+           fetch="https://github.com" />
+
+  <remote  name="qt"
+           fetch="https://code.qt.io" />
+
+  <default revision="refs/heads/kirkstone"
+           remote="github"
+           sync-c="true"
+           sync-j="4" />
+
+  <!-- OE components-->
+  <project path="meta-core" name="openembedded/openembedded-core">
+    <copyfile src="oe-init-build-env" dest="oe-init-build-env" />
+    <linkfile src="scripts" dest="scripts" />
+  </project>
+  <project path="bitbake" name="openembedded/bitbake" revision="refs/heads/master" />
+  <project path="meta-openembedded" name="openembedded/meta-openembedded" />
+
+  <!-- Qt components-->
+  <project path="meta-qt5" name="yocto/meta-qt5" remote="qt" revision="refs/heads/upstream/kirkstone" />
+
+  <!-- ARM components-->
+  <project path="meta-arm" name="lmp-mirrors/meta-arm" />
+
+  <!-- DuckyOS components-->
+  <project path="meta-duckyos" name="DuckyOS/meta-duckyos" >
+    <copyfile src=".templateconf" dest=".templateconf" />
+  </project>
+  <project path="meta-bsp" name="DuckyOS/meta-bsp" />
+  <project path="meta-duckyui" name="DuckyOS/meta-duckyui" />
+</manifest>
